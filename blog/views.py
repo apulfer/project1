@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Post
 from .forms import PostForm
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 def post_list(request):
     posts = Post.objects.filter(published_date__isnull=False).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
